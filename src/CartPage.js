@@ -6,9 +6,9 @@ const CartPage = ({ items }) => (
   <div className="CartPage">
     <h2>Cart</h2>
     <ul>
-      {items.map(item => (
-        <li key={item.id}>
-          <Item item={item} />
+      {Object.entries(items).map(([id, row]) => (
+        <li key={id}>
+          ({row.count}) <Item item={row.item} />
         </li>
       ))}
     </ul>
