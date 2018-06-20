@@ -62,11 +62,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.CartPage .items {
+.CartPage {
   margin: 0;
   padding: 0;
 }
-.CartPage .items li {
+.CartPage li {
   list-style: none;
 }
 .CartItem .count {
