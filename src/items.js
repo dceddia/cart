@@ -31,4 +31,4 @@ let items = [
   }
 ];
 
-export { items };
+module.exports = { items };

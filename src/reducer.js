@@ -1,9 +1,8 @@
-import { items } from './items';
-import { ADD_TO_CART } from './actions';
+import { ADD_TO_CART, FETCH_ITEMS_SUCCESS } from './actions';
 import produce from 'immer';
 
 const initialState = {
-  items,
+  items: [],
   cart: {}
 };
 
@@ -21,6 +20,11 @@ export default function reducer(state = initialState, action) {
           };
         }
       });
+    case FETCH_ITEMS_SUCCESS:
+      return {
+        ...state,
+        items: action.items
+      };
     default:
       return state;
   }
