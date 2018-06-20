@@ -4,6 +4,11 @@ body {
   font-family: 'Source Sans Pro', 'Open Sans', sans-serif;
 }
 
+nav {
+  font-size: 20px;
+  padding: 20px;
+}
+
 .ItemPage {
   margin: 0;
   padding: 0;
