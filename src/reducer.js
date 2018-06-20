@@ -1,5 +1,6 @@
 import { items } from './items';
 import { ADD_TO_CART } from './actions';
+import produce from 'immer';
 
 const initialState = {
   items,
@@ -9,19 +10,17 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TO_CART:
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          [action.item.id]: {
-            ...state.cart[action.item.id],
-            item: action.item,
-            count: state.cart[action.item.id]
-              ? state.cart[action.item.id].count + 1
-              : 1
-          }
+      return produce(state, draft => {
+        const item = action.item;
+        if (draft.cart[item.id]) {
+          draft.cart[item.id].count++;
+        } else {
+          draft.cart[item.id] = {
+            count: 1,
+            item
+          };
         }
-      };
+      });
     default:
       return state;
   }
